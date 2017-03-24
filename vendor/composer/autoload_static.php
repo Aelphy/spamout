@@ -26,6 +26,10 @@ class ComposerStaticInitbb3c38b3098954faebc7e77c55868ebd
             'Psr\\Log\\' => 8,
             'Phinx\\' => 6,
         ),
+        'D' => 
+        array (
+            'Ds\\' => 3,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -60,6 +64,10 @@ class ComposerStaticInitbb3c38b3098954faebc7e77c55868ebd
         'Phinx\\' => 
         array (
             0 => __DIR__ . '/..' . '/robmorgan/phinx/src/Phinx',
+        ),
+        'Ds\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-ds/php-ds/src',
         ),
     );
 
