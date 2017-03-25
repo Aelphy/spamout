@@ -40,7 +40,7 @@ if ($nearest_neighbours) {
 
     // NOTE: One can also account the similarity to spam neighbours and introduce a weighted vonting
     if ($spam_count > count($nearest_neighbours) / 2) {
-        print('according to the cotings the text is not unique');
+        print('according to the votings the text is not unique');
     } else {
         print('there were not enough spam in the neighbourhood');
     }

@@ -69,7 +69,6 @@ class MinHash {
         foreach($neighbours_candidates as $candidate) {
             $candidate_shingles = Email::find_by_spamoutid($candidate)->shingles;
 
-            print($this->Jaccard_similarity($candidate_shingles, $intersected_shingles)); 
             if ($this->Jaccard_similarity($candidate_shingles, $intersected_shingles) >= $j_thr) {
                 $neighbours[] = $candidate;
             }
