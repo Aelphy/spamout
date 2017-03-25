@@ -27,13 +27,13 @@ class CreateEmailShingles extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('email_shingles');
+      $table = $this->table('email_shingles');
 
-        $table->addColumn('email_id', 'biginteger', array('signed' => false))
-              ->addColumn('shingle_id', 'integer')
-              ->addForeignKey('email_id', 'SpamOut', 'SpamOutID', array('delete'=> 'CASCADE'))
-              ->addForeignKey('shingle_id', 'shingles', 'id', array('delete'=> 'CASCADE'))
-              ->addIndex(array('email_id', 'shingle_id'), array('unique' => true))
-              ->create();
+      $table->addColumn('email_id', 'biginteger', array('signed' => false))
+            ->addColumn('shingle_id', 'integer')
+            ->addForeignKey('email_id', 'SpamOut', 'SpamOutID', array('delete'=> 'CASCADE'))
+            ->addForeignKey('shingle_id', 'shingles', 'id', array('delete'=> 'CASCADE'))
+            ->addIndex(array('email_id', 'shingle_id'), array('unique' => true))
+            ->create();
     }
 }

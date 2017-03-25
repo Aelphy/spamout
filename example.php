@@ -28,23 +28,22 @@ $email = Email::first();
 $nearest_neighbours = $min_hash->query($email->content.' '.$email->metadata, $thr, $shingle_size);
 
 if ($nearest_neighbours) {
-    $spam_count = 0;
+  $spam_count = 0;
 
-    // here one could want to limit the amount of neighbours with some contant value of K 
-    foreach ($nearest_neighbours as $neighbour) {
-        // Check spam mark
-        if (Email::find($neighbour)->type == 1) {
-            $spam_count++;
-        }
+  // here one could want to limit the amount of neighbours with some contant value of K
+  foreach ($nearest_neighbours as $neighbour) {
+    // Check spam mark
+    if (Email::find($neighbour)->type == 1) {
+      $spam_count++;
     }
+  }
 
-    // NOTE: One can also account the similarity to spam neighbours and introduce a weighted vonting
-    if ($spam_count > count($nearest_neighbours) / 2) {
-        print('according to the votings the text is not unique');
-    } else {
-        print('there were not enough spam in the neighbourhood');
-    }
+  // NOTE: One can also account the similarity to spam neighbours and introduce a weighted vonting
+  if ($spam_count > count($nearest_neighbours) / 2) {
+    print('according to the votings the text is not unique');
+  } else {
+    print('there were not enough spam in the neighbourhood');
+  }
 } else {
-    print('the text is unique');
+  print('the text is unique');
 }
-

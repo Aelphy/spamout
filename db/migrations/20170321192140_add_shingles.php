@@ -27,10 +27,10 @@ class AddShingles extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('shingles');
+      $table = $this->table('shingles');
 
-        $table->addColumn('content', 'string')
-              ->addIndex(array('content'), array('unique' => true))
-              ->create();
+      $table->addColumn('content', 'string')
+            ->addIndex(array('content'), array('unique' => true))
+            ->create();
     }
 }
