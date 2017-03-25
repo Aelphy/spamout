@@ -13,9 +13,10 @@ class Shingler {
         $this->shingle_size = $shingle_size;
     }
 
-    public function write_shingles2db() {
+    // concatenates metadata and content
+    public function write_email_shingles2db() {
     	foreach (Email::all() as $email) {
-     		$shingles = $this->transform2shingles($email->content);
+     		$shingles = $this->transform2shingles($email->content.' '.$email->metadata);
  
      		foreach ($shingles as $str) {
          		$shingle = Shingle::find_or_create_by_content($str);
@@ -55,7 +56,7 @@ class Shingler {
 
     public function transform2shingles($document) {
         $tokens = $this->normalize($document);
-        $shingles = new \Ds\Set();;
+        $shingles = new Ds\Set();;
         
         // NOTE: it should be ensured that vocabulary size is grater than or equal to shingle size
         $vocabulary_size = count($tokens);
